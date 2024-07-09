@@ -16,12 +16,7 @@ class CepSearchController < ApplicationController
       elsif format_response['code'] == 'not_found'
         @error = 'CEP não encontrado.'
       else
-        @cep = format_response['cep']
-        @address = format_response['address']
-        @district = format_response['district']
-        @city = format_response['city']
-        @state = format_response['state']
-        @ddd = format_response['ddd']
+        @address = format_response
       end
     end
   end
