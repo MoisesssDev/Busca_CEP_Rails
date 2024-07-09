@@ -1,0 +1,23 @@
+<div class="container mx-auto mt-10">
+  <h1 class="text-center text-indigo-800 text-4xl font-extralight mb-8">
+    Buscar endereço por CEP
+  </h1>
+  <%= form_with url: root_path, method: :get, local: true, class: "text-lg max-w-md mx-auto bg-white p-8 rounded-xl shadow-md" do |form| %>
+    <div class="mb-4">
+      <%= form.label :cep, "Digite o CEP:", class: "block text-indigo-600" %>
+      <%= form.text_field :cep, class: "mt-2 p-2 border rounded w-full" %>
+    </div>
+    <%= form.submit "Buscar", class: "bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded" %>
+  <% end %>
+
+  <% if @address %>
+    <div class="mt-6 p-4 max-w-2xl mx-auto bg-gray-100 tracking-wider shadow-lg rounded text-lg text-gray-900">
+      <p><strong class="text-indigo-600">CEP:</strong> <%= @address['cep'] %></p>
+      <p><strong class="text-indigo-600">Endereço:</strong> <%= @address['address'] %></p>
+      <p><strong class="text-indigo-600">Cidade:</strong> <%= @address['city'] %></p>
+      <p><strong class="text-indigo-600">Bairro:</strong> <%= @address['district'] %></p>
+      <p><strong class="text-indigo-600">Estado:</strong> <%= @address['state'] %></p>
+      <p><strong class="text-indigo-600">DDD:</strong> <%= @address['ddd'] %></p>
+    </div>
+  <% end %>
+</div>
