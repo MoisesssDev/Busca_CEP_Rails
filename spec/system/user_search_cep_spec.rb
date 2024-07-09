@@ -16,7 +16,7 @@ RSpec.describe "cep_search/index.html.tailwindcss", type: :feature do
 
   it 'Busca por CEP inválido' do
     visit root_path
-    fill_in 'cep', with: '00000-000'
+    fill_in 'cep', with: '311-000'
     click_button 'Buscar'
 
     expect(page).to have_content('CEP inválido, tente digitar novamente.')
