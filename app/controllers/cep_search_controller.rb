@@ -12,6 +12,9 @@ class CepSearchController < ApplicationController
 
       if format_response['code'] == 'invalid'
         @error = 'CEP inválido, tente digitar novamente.'
+      
+      elsif format_response['code'] == 'not_found'
+        @error = 'CEP não encontrado.'
       else
         @cep = format_response['cep']
         @address = format_response['address']
