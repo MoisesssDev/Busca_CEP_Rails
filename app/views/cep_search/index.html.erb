@@ -11,14 +11,7 @@
   <% end %>
 
   <% if @address %>
-    <div class="mt-6 p-4 max-w-2xl mx-auto bg-slate-100 tracking-wider shadow-lg rounded text-lg text-gray-900">
-      <p><strong class="text-indigo-600">CEP:</strong> <%= @cep %></p>
-      <p><strong class="text-indigo-600">Endereço:</strong> <%= @address %></p>
-      <p><strong class="text-indigo-600">Cidade:</strong> <%= @city %></p>
-      <p><strong class="text-indigo-600">Bairro:</strong> <%= @district %></p>
-      <p><strong class="text-indigo-600">Estado:</strong> <%= @state %></p>
-      <p><strong class="text-indigo-600">DDD:</strong> <%= @ddd %></p>
-    </div>
+    <%= render 'shared/address', address: @address %>
   <% end %>
 
   <% if @error %>
