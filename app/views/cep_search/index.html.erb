@@ -1,1 +1,20 @@
-<h1 class="text-3xl font-bold underline">Hello World!</h1>
+<div class="container mx-auto mt-10">
+  <%= form_with url: root_path, method: :get, local: true, class: "max-w-md mx-auto bg-white p-8 rounded-xl shadow-md" do |form| %>
+    <div class="mb-4">
+      <%= form.label :cep, "Digite o CEP:", class: "block text-gray-700" %>
+      <%= form.text_field :cep, class: "mt-2 p-2 border rounded w-full" %>
+    </div>
+    <%= form.submit "Buscar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <% end %>
+
+  <% if @address %>
+    <div class="mt-6 p-4 bg-gray-100 rounded">
+      <p><strong>CEP:</strong> <%= @address['cep'] %></p>
+      <p><strong>Endereço:</strong> <%= @address['address'] %></p>
+      <p><strong>Cidade:</strong> <%= @address['city'] %></p>
+      <p><strong>Bairro:</strong> <%= @address['district'] %></p>
+      <p><strong>Estado:</strong> <%= @address['state'] %></p>
+      <p><strong>DDD:</strong> <%= @address['ddd'] %></p>
+    </div>
+  <% end %>
+</div>
