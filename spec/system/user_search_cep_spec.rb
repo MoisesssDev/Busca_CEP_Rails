@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "cep_search/index.html.tailwindcss", type: :feature do
+describe 'Usuario visualiza homepage e', type: :feature do
   it 'Busca por CEP válido' do
     visit root_path
     fill_in 'cep', with: '01311-000'

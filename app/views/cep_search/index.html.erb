@@ -19,4 +19,8 @@
       <p><%= @error %></p>
     </div>
   <% end %>
+
+  <div class="shadow-lg mt-4 p-8 mx-auto max-w-5xl">
+    <%= render 'shared/most_searched', most_searched: @most_searched %>
+  </div>
 </div>
