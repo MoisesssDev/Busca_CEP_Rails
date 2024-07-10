@@ -5,6 +5,7 @@ class CepSearchController < ApplicationController
   def index
     @most_searched = CepSearch.order(count: :desc).limit(3)
     @most_searched_by_state = CepSearch.group(:state).order('count DESC').limit(3)
+    @quantity_by_state = CepSearch.group(:state).count
 
     if params[:cep].present?
       url = "https://cep.awesomeapi.com.br/json/#{params[:cep]}"
