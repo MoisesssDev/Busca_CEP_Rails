@@ -1,0 +1,2 @@
+class CepSearch < ApplicationRecord
+end
