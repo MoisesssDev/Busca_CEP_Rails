@@ -24,6 +24,7 @@ describe 'Usurario ver ranking de CEPs', type: :feature do
     visit root_path
 
     expect(page).to have_content('CEPs mais buscados')
+    expect(page).to have_content('Mais buscados por estado')
     expect(page).to have_content('Nenhum CEP foi buscado ainda.')
   end
 
