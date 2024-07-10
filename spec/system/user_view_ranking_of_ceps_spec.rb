@@ -37,7 +37,7 @@ describe 'Usurario ver ranking de CEPs', type: :feature do
 
     visit root_path
 
-    expect(page).to have_content('CEPs mais buscados por estado')
+    expect(page).to have_content('Mais buscados por estado')
     expect(page).to have_content('SP - 01311-000')
     expect(page).to have_content('RJ - 01311-001')
     expect(page).to have_content('SE - 01311-002')
