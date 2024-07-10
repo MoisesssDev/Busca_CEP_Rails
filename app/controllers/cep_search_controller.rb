@@ -4,6 +4,7 @@ require 'json'
 class CepSearchController < ApplicationController
   def index
     @most_searched = CepSearch.order(count: :desc).limit(5)
+    @most_searched_by_state = CepSearch.group(:state).order('count DESC').limit(5)
 
     if params[:cep].present?
       url = "https://cep.awesomeapi.com.br/json/#{params[:cep]}"
