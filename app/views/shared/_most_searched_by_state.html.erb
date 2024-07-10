@@ -1,5 +1,5 @@
 <div class=" rounded shadow-md  p-4 max-w-xs text-center flex-auto ">
-  <h2 class="text-xl text-indigo-900 font-light">Mais buscados por estado</h2>
+  <h2 class="text-xl mb-3 text-indigo-900 font-light">Mais buscados por estado</h2>
   <%if most_searched_by_state.present? %>
     <ul class="mt-4">
       <% most_searched_by_state.each do |search| %>
@@ -11,6 +11,6 @@
       <% end %>
     </ul>
   <% else %>
-    <p>Nenhum CEP foi buscado ainda.</p>
+    <p class="text-gray-600">Nenhum CEP foi buscado ainda.</p>
   <% end %>
 </div>
