@@ -1,0 +1,18 @@
+<div class="mb-8">
+  <h2 class="text-center text-indigo-800 text-2xl font-extralight mb-4">
+    Quantidade de buscas por estado
+  </h2>
+
+  <div class="grid grid-cols-5 gap-4">
+    <% quantity_by_state.each do |state, count| %>
+      <div class="bg-white p-2 rounded shadow-md max-w-40">
+        <p class="text-lg text-indigo-800">
+          <%= state %>
+        </p>
+        <p class="text-sm text-gray-600">
+          <%= "#{count} #{count > 1 ? 'CEPs buscados' : 'CEP buscado'}" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
