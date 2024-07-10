@@ -20,7 +20,9 @@
     </div>
   <% end %>
 
-  <div class="shadow-lg mt-4 p-8 mx-auto max-w-5xl">
+  <div class="shadow-lg mt-4 p-8 mx-auto max-w-4xl flex justify-between rounded">
     <%= render 'shared/most_searched', most_searched: @most_searched %>
+
+    <%= render 'shared/most_searched_by_state', most_searched_by_state: @most_searched_by_state %>
   </div>
 </div>
