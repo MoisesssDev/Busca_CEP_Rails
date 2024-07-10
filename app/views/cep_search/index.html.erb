@@ -20,20 +20,9 @@
     </div>
   <% end %>
 
-  <div class="shadow-lg mt-4 p-8 mx-auto max-w-4xl flex justify-between">
+  <div class="shadow-lg mt-4 p-8 mx-auto max-w-4xl flex justify-between rounded">
     <%= render 'shared/most_searched', most_searched: @most_searched %>
 
-    <div class="bg-slate-100 rounded shadow-md  p-4 max-w-xs text-center flex-auto ">
-      <h2 class="text-xl text-indigo-900 font-light">Mais buscados por estado</h2>
-      <ul class="mt-4">
-        <% @most_searched_by_state.each do |search| %>
-          <li class="tracking-wider text-gray-700 text-sm mb-1">
-            <span class="text-indigo-700 text-lg font-light"><%= search.city %></span> : 
-            <%= search.cep %>
-            <span class="text-indigo-600 text-xs">- <%= search.state %></span>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'shared/most_searched_by_state', most_searched_by_state: @most_searched_by_state %>
   </div>
 </div>

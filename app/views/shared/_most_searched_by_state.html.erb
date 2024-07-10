@@ -1,0 +1,16 @@
+<div class="bg-slate-100 rounded shadow-md  p-4 max-w-xs text-center flex-auto ">
+  <h2 class="text-xl text-indigo-900 font-light">Mais buscados por estado</h2>
+  <%if most_searched_by_state.present? %>
+    <ul class="mt-4">
+      <% most_searched_by_state.each do |search| %>
+        <li class="tracking-wider text-gray-700 text-sm mb-1">
+          <span class="text-indigo-700 text-lg font-light"><%= search.city %></span> : 
+          <%= search.cep %>
+          <span class="text-indigo-600 text-xs">- <%= search.state %></span>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Nenhum CEP foi buscado ainda.</p>
+  <% end %>
+</div>
