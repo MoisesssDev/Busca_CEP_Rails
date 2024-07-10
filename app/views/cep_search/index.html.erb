@@ -19,4 +19,17 @@
       <p><%= @error %></p>
     </div>
   <% end %>
+
+  <div>
+    <h2 class="mt-10 text-xl font-bold">CEPs mais buscados</h2>
+    <%if @most_searched.present? %>
+      <ul>
+        <% @most_searched.each do |search| %>
+          <li><%= search.cep %> - <%= search.count %> buscas</li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>Nenhum CEP foi buscado ainda.</p>
+    <% end %>
+  </div>
 </div>

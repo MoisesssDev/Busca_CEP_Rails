@@ -3,6 +3,8 @@ require 'json'
 
 class CepSearchController < ApplicationController
   def index
+    @most_searched = CepSearch.order(count: :desc).limit(5)
+
     if params[:cep].present?
       url = "https://cep.awesomeapi.com.br/json/#{params[:cep]}"
       uri = URI(url)
@@ -17,17 +19,22 @@ class CepSearchController < ApplicationController
         @error = 'CEP não encontrado.'
       else
         @address = format_response
-        
-        cep = CepSearch.find_or_initialize_by(cep: params[:cep])
-        cep.count = cep.count.to_i + 1
-
-        if cep.new_record?
-          cep.state = @address['state']
-          cep.city = @address['city']
-        end
-        
-        cep.save
+        add_to_ranking(@address)
       end
     end
+  end
+
+  private
+
+  def add_to_ranking(address)
+    cep = CepSearch.find_or_initialize_by(cep: address['cep'])
+    cep.count = cep.count.to_i + 1
+
+    if cep.new_record?
+      cep.state = address['state']
+      cep.city = address['city']
+    end
+    
+    cep.save
   end
 end
