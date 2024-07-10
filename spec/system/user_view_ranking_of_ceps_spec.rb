@@ -57,11 +57,16 @@ describe 'Usurario ver ranking de CEPs', type: :feature do
 
     visit root_path
 
-    expect(page).to have_content('Quantidade de CEPs buscados por estado')
-    expect(page).to have_content('SP : 1')
-    expect(page).to have_content('RJ : 2')
-    expect(page).to have_content('SE : 1')
-    expect(page).to have_content('CE : 1')
-    expect(page).to have_content('RS : 1')
+    expect(page).to have_content('Quantidade de buscas por estado')
+    expect(page).to have_content('SP')
+    expect(page).to have_content('1 CEP buscado')
+    expect(page).to have_content('RJ')
+    expect(page).to have_content('2 CEPs buscados')
+    expect(page).to have_content('SE')
+    expect(page).to have_content('1 CEP buscado')
+    expect(page).to have_content('CE')
+    expect(page).to have_content('1 CEP buscado')
+    expect(page).to have_content('RS')
+    expect(page).to have_content('1 CEP buscado')
   end
 end
