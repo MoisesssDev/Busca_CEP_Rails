@@ -1,18 +1,25 @@
-<div class="mb-8">
+<div class="mt-8">
   <h2 class="text-center text-indigo-900 text-xl font-light mb-4">
     Quantidade de buscas por estado
   </h2>
 
-  <div class="grid grid-cols-5 gap-4">
-    <% quantity_by_state.each do |state, count| %>
-      <div class="bg-white p-2 rounded shadow-md max-w-40">
-        <p class="text-lg text-indigo-800">
-          <%= state %>
-        </p>
-        <p class="text-sm text-gray-600">
-          <%= "#{count} #{count > 1 ? 'CEPs buscados' : 'CEP buscado'}" %>
-        </p>
+    <% if quantity_by_state.present? %>
+      <div class="grid grid-cols-5 gap-4">
+        <% quantity_by_state.each do |state, count| %>
+          <div class="bg-white p-2 rounded shadow-md max-w-40">
+            <p class="text-lg text-indigo-800">
+              <%= state %>
+            </p>
+            <p class="text-sm text-gray-600">
+              <%= "#{count} #{count > 1 ? 'CEPs buscados' : 'CEP buscado'}" %>
+            </p>
+          </div>
+        <% end %>
       </div>
+    <% else %>
+      <p class="text-center text-gray-600">
+        Nenhuma busca realizada ainda
+      </p>
     <% end %>
-  </div>
+  
 </div>
