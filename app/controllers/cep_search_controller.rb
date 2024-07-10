@@ -17,6 +17,16 @@ class CepSearchController < ApplicationController
         @error = 'CEP não encontrado.'
       else
         @address = format_response
+        
+        cep = CepSearch.find_or_initialize_by(cep: params[:cep])
+        cep.count = cep.count.to_i + 1
+
+        if cep.new_record?
+          cep.state = @address['state']
+          cep.city = @address['city']
+        end
+        
+        cep.save
       end
     end
   end
