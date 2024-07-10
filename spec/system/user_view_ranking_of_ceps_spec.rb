@@ -19,4 +19,11 @@ describe 'Usurario ver ranking de CEPs', type: :feature do
     expect(page).to have_content('01311-004')
     expect(page).not_to have_content('01311-005')
   end
+
+  it 'e ainda não foi existem CEPs buscados' do
+    visit root_path
+
+    expect(page).to have_content('CEPs mais buscados')
+    expect(page).to have_content('Nenhum CEP foi buscado ainda.')
+  end
 end
