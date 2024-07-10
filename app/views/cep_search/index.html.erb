@@ -20,16 +20,20 @@
     </div>
   <% end %>
 
-  <div>
-    <h2 class="mt-10 text-xl font-bold">CEPs mais buscados</h2>
-    <%if @most_searched.present? %>
-      <ul>
-        <% @most_searched.each do |search| %>
-          <li><%= search.cep %> - <%= search.count %> buscas</li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>Nenhum CEP foi buscado ainda.</p>
-    <% end %>
+  <div class="shadow-lg mt-4 p-8 mx-auto max-w-5xl">
+    <div class="bg-slate-100 rounded shadow-md  p-4 max-w-sm text-center">
+      <h2 class="text-xl mb-3 font-light text-indigo-900">CEPs mais buscados</h2>
+      <%if @most_searched.present? %>
+        <ul>
+          <% @most_searched.each_with_index do |search, index| %>
+            <li class="tracking-wider text-gray-700 text-sm mb-1">
+              <span class="text-indigo-700 text-lg"><%= index + 1 %>º</span> <%= search.cep %> - <span class="text-indigo-600 text-xs"><%= search.count %> buscas</span>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Nenhum CEP foi buscado ainda.</p>
+      <% end %>
+    </div>
   </div>
 </div>
